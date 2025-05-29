@@ -1,0 +1,11 @@
+FROM rabbitmq:3.11-management
+
+# Установка плагина (используем альтернативный URL)
+RUN set -eux; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends wget ca-certificates; \
+    wget -P $RABBITMQ_HOME/plugins \
+      https://github.com/rabbitmq/rabbitmq-delayed-message-exchange/releases/download/3.11.1/rabbitmq_delayed_message_exchange-3.11.1.ez; \
+    rabbitmq-plugins enable --offline rabbitmq_delayed_message_exchange; \
+    apt-get purge -y --auto-remove wget; \
+    rm -rf /var/lib/apt/lists/*

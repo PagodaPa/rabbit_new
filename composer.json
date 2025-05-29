@@ -1,0 +1,18 @@
+{
+    "name": "german/new_rabbit",
+    "version": "1.0.0",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "German",
+            "email": "pppagoda@gmail.com"
+        }
+    ],
+    "require": {
+            "php-amqplib/php-amqplib": "^3.0"
+    }
+}
